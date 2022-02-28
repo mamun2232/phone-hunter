@@ -4,3 +4,10 @@ body{
           box-sizing: border-box;
           font-family: 'Poppins', sans-serif;
 }
+.header-section{
+          background: rgb(187, 165, 165);
+          height: 200px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+}
