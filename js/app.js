@@ -1,43 +1,55 @@
-// const toogleSpiner = text =>{
-//   document.getElementById('spiner').style.display = text
+// const spiner = document.getElementById('spiner')
+// const showSpiner = () =>{
+//  spiner.classList.remove('d-none')
+// }
+// const hideSpiner = () =>{
+//   spiner.classList.add('d-none')
 // }
 
 // data Load to Search book
 const dataLoad = () =>{
           const searchFlied = document.getElementById('search-box')
           const searchText = searchFlied.value
+          document.getElementById('phone-detals').style.display = 'none'
+          
           
            searchFlied.value = ''
+           
            if(searchText == ''){
                      document.getElementById('arrow-massage').innerText = `Please Valid Type`
 
            }
           // data load 
+        
           else{
+            
                     document.getElementById('arrow-massage').innerText = ``
                     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
           fetch(url)
           .then(res => res.json())
           .then(data => showDisplayPhone(data.data))
-          }   
+          }  
+          
+          
+
 }
 
 
 // show dainamic data 
 const showDisplayPhone = (phones) =>{
           
-          
-          console.log(phones.slice(0, 20));
+          const allPhones = phones.slice(0, 20)
+          console.log(allPhones);
          const displayPhone = document.getElementById('phones')
          displayPhone.textContent = ''
 
-         if(phones.length == 0){
+         if(allPhones.length == 0){
           document.getElementById('arrow-massage').innerText = `No Phone Found`
 
 
          }
          else{
-          phones.forEach(phone =>{
+          allPhones.forEach(phone =>{
                     
                     const div = document.createElement('div')
                     div.innerHTML = `
@@ -57,6 +69,8 @@ const showDisplayPhone = (phones) =>{
                     displayPhone.appendChild(div)
                    
           })
+        
+         
           
 
          }
@@ -69,6 +83,7 @@ const showDisplayPhone = (phones) =>{
 
 
 const phoneDetals = (detals) =>{
+  document.getElementById('phone-detals').style.display = 'block'
           console.log(detals);
           const url = ` https://openapi.programming-hero.com/api/phone/${detals}`
           fetch(url)
