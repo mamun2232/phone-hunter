@@ -11,3 +11,15 @@ body{
           justify-content: center;
           align-items: center;
 }
+
+.images{
+          /* height: 420px; */
+          padding-top: 40px;
+          padding-left: 50px;
+          padding-right: 50px;
+          height: 350px;
+         
+          
+}
+
+
