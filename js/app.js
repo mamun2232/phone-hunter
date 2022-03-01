@@ -1,10 +1,3 @@
-// const spiner = document.getElementById('spiner')
-// const showSpiner = () =>{
-//  spiner.classList.remove('d-none')
-// }
-// const hideSpiner = () =>{
-//   spiner.classList.add('d-none')
-// }
 
 // data Load to Search book
 const dataLoad = () =>{
@@ -13,10 +6,11 @@ const dataLoad = () =>{
           document.getElementById('phone-detals').style.display = 'none'
           
           
+          
            searchFlied.value = ''
            
            if(searchText == ''){
-                     document.getElementById('arrow-massage').innerText = `Please Valid Type`
+                     document.getElementById('arrow-massage').innerText = `Please Search A Valid Phone Name..`
 
            }
           // data load 
@@ -44,7 +38,7 @@ const showDisplayPhone = (phones) =>{
          displayPhone.textContent = ''
 
          if(allPhones.length == 0){
-          document.getElementById('arrow-massage').innerText = `No Phone Found`
+          document.getElementById('arrow-massage').innerText = `No Phone Found.Try Again..`
 
 
          }
@@ -61,7 +55,7 @@ const showDisplayPhone = (phones) =>{
                               <div class="text-center">
                               <h5 class="card-title">${phone.phone_name}</h5>
                               <p class="card-text"> ${phone.brand}</p>
-                              <button onclick="phoneDetals('${phone.slug}')" class="btn btn-primary px-5 ">Detals</button>
+                              <button onclick="phoneDetals('${phone.slug}')" class="btn btn-primary px-5 ">Details</button>
                                </div>
                               </div>
                              
@@ -70,9 +64,7 @@ const showDisplayPhone = (phones) =>{
                    
           })
         
-         
-          
-
+        
          }
          
 
@@ -113,7 +105,7 @@ const ShowDetals = (phoneInfo) =>{
                     <div class="card-body">
                       <h5 class="card-title fw-bold">${phoneInfo.name}</h5>
                       
-                      <h6 class="text-muted">First Release: ${phoneInfo.releaseDate ? phoneInfo.releaseDate: 'No relase date'}</h6>
+                      <h6 class="text-muted">${phoneInfo.releaseDate ? phoneInfo.releaseDate: 'Not found release date'}</h6>
                       <p><span class="fw-bold me-2">Brand: </span> ${phoneInfo.brand}</p>
                       <p><span class="fw-bold">Main Features</span>  <p/>
                       
@@ -124,12 +116,12 @@ const ShowDetals = (phoneInfo) =>{
 
                       
                       <p><span class="fw-bold">Other Features</span>  </P>
-                      <p><span class="fw-bold me-3">WLAN: </span> ${phoneInfo?.others?.WLAN ? phoneInfo.others.WLAN : 'No'}</p>
-                      <p><span class="fw-bold me-3">Bluetooth:: </span> ${phoneInfo?.others?.Bluetooth ? phoneInfo.others.Bluetooth : 'No'}</p>
-                      <p><span class="fw-bold me-3">GPS: </span> ${phoneInfo?.others?.GPS ? phoneInfo.others.GPS : 'No'}</p>
+                      <p><span class="fw-bold me-3">WLAN: </span> ${phoneInfo?.others?.WLAN ? phoneInfo.others.WLAN : 'dual-band, Wi-Fi Direct, hotspot'}</p>
+                      <p><span class="fw-bold me-3">Bluetooth:: </span> ${phoneInfo?.others?.Bluetooth ? phoneInfo.others.Bluetooth : 'Yes'}</p>
+                      <p><span class="fw-bold me-3">GPS: </span> ${phoneInfo?.others?.GPS ? phoneInfo.others.GPS : 'Yes, with A-GPS'}</p>
                       <p><span class="fw-bold me-3">NFC: </span> ${phoneInfo?.others?.NFC ? phoneInfo.others.NFC : 'No'}</p>
-                      <p><span class="fw-bold me-3">Radio: </span> ${phoneInfo?.others?.Radio ? phoneInfo.others.Radio : 'No'}</p>
-                      <p><span class="fw-bold me-3">USB: </span> ${phoneInfo?.others?.USB ? phoneInfo.others.USB : 'No'}</p>
+                      <p><span class="fw-bold me-3">Radio: </span> ${phoneInfo?.others?.Radio ? phoneInfo.others.Radio : 'Yes'}</p>
+                      <p><span class="fw-bold me-3">USB: </span> ${phoneInfo?.others?.USB ? phoneInfo.others.USB : 'Yes, USB Type-C 2.0'}</p>
                   
                      
                 

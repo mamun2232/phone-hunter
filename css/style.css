@@ -5,7 +5,7 @@ body{
           font-family: 'Poppins', sans-serif;
 }
 .header-section{
-          /* background: rgb(187, 165, 165); */
+         
           height: 200px;
           display: flex;
           justify-content: center;
@@ -13,7 +13,7 @@ body{
 }
 
 .images{
-          /* height: 420px; */
+         
           padding-top: 40px;
           padding-left: 50px;
           padding-right: 50px;
@@ -22,11 +22,6 @@ body{
           
 }
 
-/* @media (max-width: 550px){
-          .Phone-search{
-                    max-width: 100%;
-         
-} */
 
 .detals-img{
           height: 450px;
