@@ -19,7 +19,9 @@ const dataLoad = () =>{
 
 // show dainamic data 
 const showDisplayPhone = (phones) =>{
-          console.log(phones);
+          
+          
+          console.log(phones.slice(0, 20));
          const displayPhone = document.getElementById('phones')
          displayPhone.textContent = ''
 
@@ -76,17 +78,16 @@ const ShowDetals = (phoneInfo) =>{
           <div class="row g-0">
                   <div class="col-md-4 d-flex justify-content-center align-items-center">
                   <div class="d-block ">
-                  <img src="${phoneInfo.image}" class="img-fluid   rounded-start" alt="...">
+                  <img class="detals-img" src="${phoneInfo.image}" class="img-fluid   rounded-start" alt="...">
                         
                 </div>
-                    
                     
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
                       <h5 class="card-title">${phoneInfo.name}</h5>
                       
-                      <h6 class="text-muted">Relase Date: ${phoneInfo?.releaseDate}</h6>
+                      <h6 class="text-muted">Relase Date: ${phoneInfo.releaseDate ? phoneInfo.releaseDate: 'No relase date'}</h6>
                       <p>Brand: ${phoneInfo.brand}</p>
                       <p>Main Fetcure <p/>
                       
@@ -95,16 +96,15 @@ const ShowDetals = (phoneInfo) =>{
                       <p>ChipSet: ${phoneInfo.mainFeatures.chipSet}</p>
                       <p>Sencor: ${phoneInfo.mainFeatures.sensors}</p>
                       <p>Other Future</P>
-                      <p>WLAN: ${phoneInfo?.others?.WLAN}</p>
-                      <p>Bluetooth: ${phoneInfo?.others?.Bluetooth}</p>
-                      <p>GPS: ${phoneInfo?.others?.GPS}</p>
-                      <p>NFCr: ${phoneInfo?.others?.NFC}</p>
-                      <p>Radio: ${phoneInfo?.others?.Radio}</p>
-                      <p>USB: ${phoneInfo?.others?.USB}</p>
+                      <p>WLAN: ${phoneInfo?.others?.WLAN ? phoneInfo.others.WLAN : 'sorry'}</p>
+                      <p>Bluetooth: ${phoneInfo?.others?.Bluetooth ? phoneInfo.others.Bluetooth : 'No'}</p>
+                      <p>GPS: ${phoneInfo?.others?.GPS ? phoneInfo.others.GPS : 'No'}</p>
+                      <p>NFCr: ${phoneInfo?.others?.NFC ? phoneInfo.others.NFC : 'No'}</p>
+                      <p>Radio: ${phoneInfo?.others?.Radio ? phoneInfo.others.Radio : 'No'}</p>
+                      <p>USB: ${phoneInfo?.others?.USB ? phoneInfo.others.USB : 'No'}</p>
                   
                      
-                    
-
+                
 </div>
           
             </div>
