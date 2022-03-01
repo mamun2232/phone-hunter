@@ -34,13 +34,13 @@ const showDisplayPhone = (phones) =>{
                     const div = document.createElement('div')
                     div.innerHTML = `
                     <div class="col ">
-                              <div class="card">
+                              <div class="card shadow rounded">
                               <img  class="images img-fluid" src="${phone.image}" class="card-img-top" alt="...">
                               <div class="card-body mt-2">
                              
                               <div class="text-center">
                               <h5 class="card-title">${phone.phone_name}</h5>
-                              <p class="card-text">Brand: ${phone.brand}</p>
+                              <p class="card-text"> ${phone.brand}</p>
                               <button onclick="phoneDetals('${phone.slug}')" class="btn btn-primary px-5 ">Detals</button>
                                </div>
                               </div>
@@ -72,40 +72,44 @@ const ShowDetals = (phoneInfo) =>{
           const div = document.createElement('div')
           
           div.innerHTML = `
+          <div  class="card mb-3" >
           <div class="row g-0">
-                                          <div class="col-md-4 d-flex justify-content-center align-items-center">
-                                          <div class="d-block ">
-                                          <img src="${phoneInfo.image}" class="img-fluid   rounded-start" alt="...">
-                                                
-                                        </div>
-                                            
-                                            
-                                          </div>
-                                          <div class="col-md-8">
-                                            <div class="card-body">
-                                              <h5 class="card-title">${phoneInfo.name}</h5>
-                                              
-                                              <h6 class="text-muted">Relase Date: ${phoneInfo?.releaseDate}</h6>
-
-                                              <p>Brand: ${phoneInfo.brand}</p>
-                                              <p>DisplaySize: ${phoneInfo.mainFeatures.displaySize}</p>
-                                              <p>Memory: ${phoneInfo.mainFeatures.memory}</p>
-                                              <p>ChipSet: ${phoneInfo.mainFeatures.chipSet}</p>
-                                              <p>Sencor: ${phoneInfo.mainFeatures.sensors}</p>
-                                              <p>Other Information</P>
-                                              <p>WLAN: ${phoneInfo?.others?.WLAN}</p>
-                                              <p>Bluetooth: ${phoneInfo?.others?.Bluetooth}</p>
-                                              <p>GPS: ${phoneInfo?.others?.GPS}</p>
-                                              <p>NFCr: ${phoneInfo?.others?.NFC}</p>
-                                              <p>Radio: ${phoneInfo?.others?.Radio}</p>
-                                              <p>USB: ${phoneInfo?.others?.USB}</p>
-                                          
-                                             
-                                            
-
-                      </div>
+                  <div class="col-md-4 d-flex justify-content-center align-items-center">
+                  <div class="d-block ">
+                  <img src="${phoneInfo.image}" class="img-fluid   rounded-start" alt="...">
+                        
+                </div>
+                    
+                    
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">${phoneInfo.name}</h5>
                       
+                      <h6 class="text-muted">Relase Date: ${phoneInfo?.releaseDate}</h6>
+                      <p>Brand: ${phoneInfo.brand}</p>
+                      <p>Main Fetcure <p/>
+                      
+                      <p>DisplaySize: ${phoneInfo.mainFeatures.displaySize}</p>
+                      <p>Memory: ${phoneInfo.mainFeatures.memory}</p>
+                      <p>ChipSet: ${phoneInfo.mainFeatures.chipSet}</p>
+                      <p>Sencor: ${phoneInfo.mainFeatures.sensors}</p>
+                      <p>Other Future</P>
+                      <p>WLAN: ${phoneInfo?.others?.WLAN}</p>
+                      <p>Bluetooth: ${phoneInfo?.others?.Bluetooth}</p>
+                      <p>GPS: ${phoneInfo?.others?.GPS}</p>
+                      <p>NFCr: ${phoneInfo?.others?.NFC}</p>
+                      <p>Radio: ${phoneInfo?.others?.Radio}</p>
+                      <p>USB: ${phoneInfo?.others?.USB}</p>
+                  
+                     
+                    
+
+</div>
           
+            </div>
+                      
+
           `
           detals.appendChild(div)
           
