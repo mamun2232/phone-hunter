@@ -4,11 +4,12 @@ const dataLoad = () =>{
           const searchText = searchFlied.value
            searchFlied.value = ''
            if(searchText == ''){
-                     document.getElementById('arrow-massage').innerText = `Sorry`
+                     document.getElementById('arrow-massage').innerText = `Please Valid Type`
 
            }
           // data load 
           else{
+                    document.getElementById('arrow-massage').innerText = ``
                     const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
           fetch(url)
           .then(res => res.json())
@@ -18,9 +19,16 @@ const dataLoad = () =>{
 
 // show dainamic data 
 const showDisplayPhone = (phones) =>{
+          console.log(phones);
          const displayPhone = document.getElementById('phones')
          displayPhone.textContent = ''
 
+         if(phones.length == 0){
+          document.getElementById('arrow-massage').innerText = `No Phone Found`
+
+
+         }
+         else{
           phones.forEach(phone =>{
                     
                     const div = document.createElement('div')
@@ -40,7 +48,12 @@ const showDisplayPhone = (phones) =>{
                     `
                     displayPhone.appendChild(div)
           })
+
+         }
+
+          
 }
+
 
 const phoneDetals = (detals) =>{
           console.log(detals);
@@ -55,12 +68,14 @@ const ShowDetals = (phoneInfo) =>{
           console.log(phoneInfo);
           const detals = document.getElementById('phone-detals')
           detals.textContent = ''
+          console.log(phoneInfo.releaseDate);
           const div = document.createElement('div')
+          
           div.innerHTML = `
           <div class="row g-0">
-                                          <div class="col-md-4">
-                                          <div class="d-block text-center">
-                                          <img src="${phoneInfo.image}" class="img-fluid  rounded-start" alt="...">
+                                          <div class="col-md-4 d-flex justify-content-center align-items-center">
+                                          <div class="d-block ">
+                                          <img src="${phoneInfo.image}" class="img-fluid   rounded-start" alt="...">
                                                 
                                         </div>
                                             
@@ -69,16 +84,32 @@ const ShowDetals = (phoneInfo) =>{
                                           <div class="col-md-8">
                                             <div class="card-body">
                                               <h5 class="card-title">${phoneInfo.name}</h5>
+                                              
+                                              <h6 class="text-muted">Relase Date: ${phoneInfo?.releaseDate}</h6>
+
                                               <p>Brand: ${phoneInfo.brand}</p>
                                               <p>DisplaySize: ${phoneInfo.mainFeatures.displaySize}</p>
                                               <p>Memory: ${phoneInfo.mainFeatures.memory}</p>
+                                              <p>ChipSet: ${phoneInfo.mainFeatures.chipSet}</p>
                                               <p>Sencor: ${phoneInfo.mainFeatures.sensors}</p>
+                                              <p>Other Information</P>
+                                              <p>WLAN: ${phoneInfo?.others?.WLAN}</p>
+                                              <p>Bluetooth: ${phoneInfo?.others?.Bluetooth}</p>
+                                              <p>GPS: ${phoneInfo?.others?.GPS}</p>
+                                              <p>NFCr: ${phoneInfo?.others?.NFC}</p>
+                                              <p>Radio: ${phoneInfo?.others?.Radio}</p>
+                                              <p>USB: ${phoneInfo?.others?.USB}</p>
+                                          
                                              
                                             
 
                       </div>
+                      
           
           `
           detals.appendChild(div)
+          
 
 }
+
+
