@@ -1,7 +1,12 @@
+// const toogleSpiner = text =>{
+//   document.getElementById('spiner').style.display = text
+// }
+
 // data Load to Search book
 const dataLoad = () =>{
           const searchFlied = document.getElementById('search-box')
           const searchText = searchFlied.value
+          
            searchFlied.value = ''
            if(searchText == ''){
                      document.getElementById('arrow-massage').innerText = `Please Valid Type`
@@ -16,6 +21,7 @@ const dataLoad = () =>{
           .then(data => showDisplayPhone(data.data))
           }   
 }
+
 
 // show dainamic data 
 const showDisplayPhone = (phones) =>{
@@ -49,12 +55,17 @@ const showDisplayPhone = (phones) =>{
                              
                     `
                     displayPhone.appendChild(div)
+                   
           })
+          
 
          }
+         
 
           
 }
+
+
 
 
 const phoneDetals = (detals) =>{
@@ -85,23 +96,25 @@ const ShowDetals = (phoneInfo) =>{
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
-                      <h5 class="card-title">${phoneInfo.name}</h5>
+                      <h5 class="card-title fw-bold">${phoneInfo.name}</h5>
                       
-                      <h6 class="text-muted">Relase Date: ${phoneInfo.releaseDate ? phoneInfo.releaseDate: 'No relase date'}</h6>
-                      <p>Brand: ${phoneInfo.brand}</p>
-                      <p>Main Fetcure <p/>
+                      <h6 class="text-muted">First Release: ${phoneInfo.releaseDate ? phoneInfo.releaseDate: 'No relase date'}</h6>
+                      <p><span class="fw-bold me-2">Brand: </span> ${phoneInfo.brand}</p>
+                      <p><span class="fw-bold">Main Features</span>  <p/>
                       
-                      <p>DisplaySize: ${phoneInfo.mainFeatures.displaySize}</p>
-                      <p>Memory: ${phoneInfo.mainFeatures.memory}</p>
-                      <p>ChipSet: ${phoneInfo.mainFeatures.chipSet}</p>
-                      <p>Sencor: ${phoneInfo.mainFeatures.sensors}</p>
-                      <p>Other Future</P>
-                      <p>WLAN: ${phoneInfo?.others?.WLAN ? phoneInfo.others.WLAN : 'sorry'}</p>
-                      <p>Bluetooth: ${phoneInfo?.others?.Bluetooth ? phoneInfo.others.Bluetooth : 'No'}</p>
-                      <p>GPS: ${phoneInfo?.others?.GPS ? phoneInfo.others.GPS : 'No'}</p>
-                      <p>NFCr: ${phoneInfo?.others?.NFC ? phoneInfo.others.NFC : 'No'}</p>
-                      <p>Radio: ${phoneInfo?.others?.Radio ? phoneInfo.others.Radio : 'No'}</p>
-                      <p>USB: ${phoneInfo?.others?.USB ? phoneInfo.others.USB : 'No'}</p>
+                      <p><span class="fw-bold me-3">DisplaySize: </span> ${phoneInfo.mainFeatures.displaySize}</p>
+                      <p> <span class="fw-bold me-3">Memory: </span> ${phoneInfo.mainFeatures.memory}</p>
+                      <p> <span class="fw-bold me-3">ChipSet: </span> ${phoneInfo.mainFeatures.chipSet}</p>
+                      <p> <span class="fw-bold me-3">Sencor: </span> ${phoneInfo.mainFeatures.sensors}</p>
+
+                      
+                      <p><span class="fw-bold">Other Features</span>  </P>
+                      <p><span class="fw-bold me-3">WLAN: </span> ${phoneInfo?.others?.WLAN ? phoneInfo.others.WLAN : 'No'}</p>
+                      <p><span class="fw-bold me-3">Bluetooth:: </span> ${phoneInfo?.others?.Bluetooth ? phoneInfo.others.Bluetooth : 'No'}</p>
+                      <p><span class="fw-bold me-3">GPS: </span> ${phoneInfo?.others?.GPS ? phoneInfo.others.GPS : 'No'}</p>
+                      <p><span class="fw-bold me-3">NFC: </span> ${phoneInfo?.others?.NFC ? phoneInfo.others.NFC : 'No'}</p>
+                      <p><span class="fw-bold me-3">Radio: </span> ${phoneInfo?.others?.Radio ? phoneInfo.others.Radio : 'No'}</p>
+                      <p><span class="fw-bold me-3">USB: </span> ${phoneInfo?.others?.USB ? phoneInfo.others.USB : 'No'}</p>
                   
                      
                 
