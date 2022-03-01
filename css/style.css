@@ -4,6 +4,8 @@ body{
           box-sizing: border-box;
           font-family: 'Poppins', sans-serif;
 }
+
+
 .header-section{
          
           height: 200px;
@@ -11,6 +13,7 @@ body{
           justify-content: center;
           align-items: center;
 }
+
 
 .images{
          
@@ -26,11 +29,6 @@ body{
 .detals-img{
           height: 450px;
           padding: 20px;
-}
-
-.addSpiner{
-          display: none;
-
 }
 
 

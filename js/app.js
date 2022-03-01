@@ -1,19 +1,19 @@
 
-// data Load to Search book
+//--------------- data Load to Search book
 const dataLoad = () =>{
-          const searchFlied = document.getElementById('search-box')
-          const searchText = searchFlied.value
+
+          const searchFelid = document.getElementById('search-box')
+          const searchText = searchFelid.value
           document.getElementById('phone-detals').style.display = 'none'
           
-          
-          
-           searchFlied.value = ''
+           searchFelid.value = ''
            
-           if(searchText == ''){
+           if(searchText == ''){ 
+            //---------  show arrowy massage 
                      document.getElementById('arrow-massage').innerText = `Please Search A Valid Phone Name..`
 
            }
-          // data load 
+          //------ data load to api
         
           else{
             
@@ -25,21 +25,19 @@ const dataLoad = () =>{
           }  
           
           
-
 }
 
 
-// show dainamic data 
+// -----------------show dainamic data 
 const showDisplayPhone = (phones) =>{
           
           const allPhones = phones.slice(0, 20)
-          console.log(allPhones);
+          
          const displayPhone = document.getElementById('phones')
          displayPhone.textContent = ''
 
          if(allPhones.length == 0){
           document.getElementById('arrow-massage').innerText = `No Phone Found.Try Again..`
-
 
          }
          else{
@@ -64,31 +62,29 @@ const showDisplayPhone = (phones) =>{
                    
           })
         
-        
          }
-         
-
-          
+            
 }
 
 
-
+//-------------------- show phone detals api get
 
 const phoneDetals = (detals) =>{
   document.getElementById('phone-detals').style.display = 'block'
-          console.log(detals);
+        
           const url = ` https://openapi.programming-hero.com/api/phone/${detals}`
           fetch(url)
           .then(res => res.json())
           .then(data => ShowDetals(data.data))
 }
 
+//----------------------- show phone detilas in ui 
 const ShowDetals = (phoneInfo) =>{
           
           console.log(phoneInfo);
           const detals = document.getElementById('phone-detals')
           detals.textContent = ''
-          console.log(phoneInfo.releaseDate);
+          
           const div = document.createElement('div')
           
           div.innerHTML = `
@@ -133,7 +129,6 @@ const ShowDetals = (phoneInfo) =>{
           `
           detals.appendChild(div)
           
-
 }
 
 
