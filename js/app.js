@@ -8,7 +8,7 @@ const dataLoad = () =>{
           
            searchFelid.value = ''
            
-           if(searchText == ''){ 
+           if(searchText == '' || typeof(searchText) == 'number'){ 
             //---------  show arrowy massage 
                      document.getElementById('arrow-massage').innerText = `Please Search A Valid Phone Name..`
 
@@ -45,7 +45,7 @@ const showDisplayPhone = (phones) =>{
                     
                     const div = document.createElement('div')
                     div.innerHTML = `
-                    <div class="col ">
+                    <div class="col col-sm-12">
                               <div class="card shadow rounded">
                               <img  class="images img-fluid" src="${phone.image}" class="card-img-top" alt="...">
                               <div class="card-body mt-2">
@@ -58,11 +58,16 @@ const showDisplayPhone = (phones) =>{
                               </div>
                              
                     `
+                   
                     displayPhone.appendChild(div)
+                    
                    
           })
+         
+          
         
          }
+         
             
 }
 
@@ -70,6 +75,7 @@ const showDisplayPhone = (phones) =>{
 //-------------------- show phone detals api get
 
 const phoneDetals = (detals) =>{
+  
   document.getElementById('phone-detals').style.display = 'block'
         
           const url = ` https://openapi.programming-hero.com/api/phone/${detals}`
@@ -80,15 +86,17 @@ const phoneDetals = (detals) =>{
 
 //----------------------- show phone detilas in ui 
 const ShowDetals = (phoneInfo) =>{
+  console.log(phoneInfo);
+  
           
-          console.log(phoneInfo);
+          
           const detals = document.getElementById('phone-detals')
           detals.textContent = ''
           
           const div = document.createElement('div')
           
           div.innerHTML = `
-          <div  class="card mb-3" >
+          <div  class="card col-12 mb-3" >
           <div class="row g-0">
                   <div class="col-md-4 d-flex justify-content-center align-items-center">
                   <div class="d-block ">
@@ -97,7 +105,7 @@ const ShowDetals = (phoneInfo) =>{
                 </div>
                     
                   </div>
-                  <div class="col-md-8">
+                  <div class="col-md-8 col-sm-12 ">
                     <div class="card-body">
                       <h5 class="card-title fw-bold">${phoneInfo.name}</h5>
                       
